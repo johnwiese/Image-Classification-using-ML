@@ -1,8 +1,7 @@
 
-let scrollbox;
 
 function addElement(strElement) {
-  scrollbox = document.getElementById('scrollbox');
+  var scrollbox = document.getElementById('scrollbox');
   
   // Create some element, e.g. div
   var newElement = document.createElement('div');
@@ -17,7 +16,7 @@ let net;
 
 async function app() {
   console.log('Loading mobilenet..');
-  //addElement('Loading mobilenet..');
+  addElement('Loading mobilenet..');
   // Load the model.
   net = await mobilenet.load();
   console.log('Sucessfully loaded model');
@@ -30,10 +29,8 @@ async function app() {
   addElement('Prediction results:');
 
   for (let i = 0; i < results.length; i++) {
-
     var text = "</br></br>index: " + i + "</br>className: " + results[i]["className"] + "</br>probability: " + results[i]["probability"];
     addElement(text);
-
   }
 }
 
